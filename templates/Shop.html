@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
+	  
+
+    <title>EliSweets</title>
+  </head>   
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <!-- Navigation -->
+	 
+
+	  {% include 'navbar.html' %}
+
+    <!-- Main Content -->
+    <div class="container mx-auto my-8">
+      <h1 class="mb-8 text-center text-4xl font-bold">Desserts and Cakes</h1>
+
+      <div class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
+        <!-- Product Card 1 -->
+        <div class="transform rounded-lg bg-white p-4 shadow-md transition-transform hover:scale-105">
+          <img src="https://images2.alphacoders.com/862/862859.jpg" alt="Cake 1" class="mb-4 h-48 w-full rounded-lg object-cover" />
+          <h2 class="mb-2 text-xl font-semibold">Chocolate Fudge Cake</h2>
+          <p class="mb-4 text-gray-600">Delicious chocolate fudge cake with rich cocoa flavor.</p>
+          <p class="font-bold text-gray-800">$25.99</p>
+          <button class="mt-4 rounded-md bg-blue-500 px-4 py-2 text-white hover:bg-blue-700">Add to Cart</button>
+		</div>
+
+        <!-- Product Card 2 -->
+        <div class="transform rounded-lg bg-white p-4 shadow-md transition-transform hover:scale-105">
+          <img src="https://assets.tmecosys.com/image/upload/t_web496x528/img/recipe/ras/Assets/A781F04D-0CEA-46CE-B2C2-9C99AD2699F9/Derivates/D6DB79F7-9222-4847-9915-011B28A9A36A.jpg" alt="Cake 2" class="mb-4 h-48 w-full rounded-lg object-cover" />
+          <h2 class="mb-2 text-xl font-semibold">Strawberry Shortcake</h2>
+          <p class="mb-4 text-gray-600">Light and fluffy strawberry shortcake topped with fresh berries.</p>
+          <p class="font-bold text-gray-800">$19.99</p>
+			<button class="mt-4 rounded-md bg-blue-500 px-4 py-2 text-white hover:bg-blue-700">Add to Cart</button>
+        </div>
+
+        <!-- Add more product cards as needed -->
+		  
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="50 p-4 black">
+      <div class="container mx-auto text-center">
+        <p>&copy; 2024 Sweet Treats. All rights reserved.</p>
+      </div>
+    </footer>
+
+
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+  </body>
+</html>

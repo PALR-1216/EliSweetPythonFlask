@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+	<style>
+	 
+	</style>
+	<title>Eli Sweets</title>
+  </head>
+  <body onload="checkDelivery()" class="">
+
+	<!-- Navigation -->
+	  
+	<!-- Hero Section -->
+	  <section style="text-align:center; background-image: url('https://wallpapercave.com/wp/wp12573002.jpg'); background-size: cover; background-position: center;" class="bg-gradient-to-r from-pink-500 to-purple-500 text-white h-screen flex flex-col justify-center items-center">
+		<h1 class="text-4xl md:text-6xl lg:text-8xl font-bold mb-6">Delicious Desserts & Cakes</h1>
+		<p style='text-align:center' class="text-lg md:text-xl mb-8">Indulge in our heavenly treats delivered right to your doorstep!</p>
+		<a href="/shop" class="bg-white text-gray-800 hover:bg-gray-300 py-2 px-4 rounded-full font-bold text-lg transition duration-300">Explore Shop</a>
+	  </section>
+
+	<!-- Menu Section -->
+
+
+   
+	  
+	
+	<!-- Contact Section -->
+	<section id="contact" class="50 py-16">
+	  <div class="container mx-auto text-center">
+		<h2 class="text-3xl font-bold mb-8">Contact Us</h2>
+		<p class="text-lg mb-8">Ready to satisfy your sweet cravings? Contact us for orders and inquiries.</p>
+		<a href="tel:+1234567890" class="text-xl font-bold text-blue-500 hover:underline">Call us: +1 (234) 567-890</a>
+	  </div>
+	</section>
+<!-- 
+	  <script>
+		
+			function checkDelivery() {
+			  
+
+			  if (navigator.geolocation) {
+				navigator.geolocation.getCurrentPosition(function (pos) {
+				  ShowPos(pos);
+				});
+			  } else {
+				// Handle the case when geolocation is not supported
+			  }
+			}
+
+			function ShowPos(pos) {
+				console.log(`${pos.coords.latitude} + ${pos.coords.longitude}`)
+			  
+			}
+
+			// Commented out the checkDelivery() call to prevent it from executing immediately
+			// checkDelivery();
+		  
+	  </script> -->
+
+  </body>
+</html>
