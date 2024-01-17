@@ -60,7 +60,8 @@ def Auth_Admin():
 @app.route('/dashboard', methods=["GET"])
 def dashboard():
     if 'email' in session:
-        return render_template('dashboard.html')
+        
+        return render_template('Dashboard.html')
     
     else:
         return redirect(url_for('LoginAdmin'))
@@ -72,6 +73,32 @@ def dashboard():
 def LogOut():
     session.clear()
     return render_template('Landing.html')
+
+@app.route('/listOrder', methods=["GET", "POST"])
+def ListOrder():
+    return render_template('OrderList.html')
+
+
+@app.route('/addOrder', methods=["GET", "POST"])
+def AddOrder():
+    return render_template('AddOrder.html')
+
+@app.route('/products', methods=['GET', "POST"])
+def Products():
+    return render_template('Products.html')
+
+
+@app.route('/addProduct', methods=["GET"])
+def RenderProduct():
+    return render_template('AddProduct.html')
+
+
+#add Product to database firestore
+@app.route('/addProduct', methods=["POST"])
+def AddProduct():
+    if request.method == "POST":
+        pass
+
 
 
 

@@ -8,6 +8,7 @@
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <title>EliSweets Dashboard</title>
   </head>
+
 	 
   <body>
 	  <h1 style="text-align:center" class="text-2xl font-bold">Welcome to EliSweets Admin Dashboard</h1>
@@ -20,7 +21,7 @@
 		  </div>
 		  </a>
 		  <!-- Stat Card 2 -->
-		  <a href="#">
+		  <a href="/listOrder">
 		  <div class="bg-white p-4 rounded shadow">
 			  <p class="text-gray-500">Total Orders</p>
 			  <h2 class="text-2xl font-bold"> 150</h2>
@@ -37,6 +38,8 @@
 			  <h2 class="text-2xl font-bold"> 20</h2>
 		  </div>
 	  </div>
+
+	  {% include 'OrderList.html' %}
 
 	  
 	  

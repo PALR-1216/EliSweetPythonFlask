@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {% include 'navbarAdmin.html' %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Form</title>
+
+    <!-- Include Bootstrap CSS (Change the path accordingly) -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+
+    <!-- Include Tailwind CSS (Change the path accordingly) -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
+    <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_GOOGLE_MAPS_API_KEY&libraries=places"></script>
+
+</head>
+
+<body class="bg-gray-100">
+
+    <div class="container mx-auto mt-8">
+        <div class="max-w-md mx-auto bg-white rounded-md overflow-hidden shadow-md">
+            <div class="bg-gray-200 text-center py-4">
+                <h3 class="text-lg font-semibold text-gray-700">Order Form</h3>
+            </div>
+            <div class="p-4">
+
+                <!-- Order Form -->
+                <form>
+
+                    <!-- Client Information -->
+                    <div class="mb-4">
+                        <label for="clientName" class="block text-gray-700 text-sm font-bold mb-2">Client Name</label>
+                        <input type="text" class="form-input px-4 py-2 w-full border rounded-md" id="clientName" name="clientName" required>
+                    </div>
+
+                    <div class="mb-4">
+                        <label for="clientPhoneNumber" class="block text-gray-700 text-sm font-bold mb-2">Client Phone Number</label>
+                        <input type="tel" class="form-input px-4 py-2 w-full border rounded-md" id="clientPhoneNumber" name="clientPhoneNumber" required>
+                    </div>
+
+                    <div class="mb-4">
+                        <label for="clientEmail" class="block text-gray-700 text-sm font-bold mb-2">Client Email</label>
+                        <input type="email" class="form-input px-4 py-2 w-full border rounded-md" id="clientEmail" name="clientEmail" required>
+                    </div>
+
+                    <div class="mb-4">
+                        <label for="clientDeliveryLocation" class="block text-gray-700 text-sm font-bold mb-2">Client Delivery Location</label>
+                        <input type="text" class="form-input px-4 py-2 w-full border rounded-md" id="clientDeliveryLocation" name="clientDeliveryLocation" required>
+                    </div>
+
+                 
+
+                    <div class="mb-4">
+                        <label for="clientProduct" class="block text-gray-700 text-sm font-bold mb-2">Client Product of Choice</label>
+                        <select class="form-select px-4 py-2 w-full border rounded-md" id="clientProduct" name="clientProduct" required onchange="updateProductInfo()">
+                            <option value="" disabled selected>Select a product</option>
+                            <option value="product1">Product 1</option>
+                            <option value="product2">Product 2</option>
+                            <option value="product3">Product 3</option>
+                            <!-- Add more options as needed -->
+                        </select>
+                    </div>
+
+                    
+
+                    <div class="mb-4">
+                        <label for="productQuantity" class="block text-gray-700 text-sm font-bold mb-2">Quantity</label>
+                        <input type="number" class="form-input px-4 py-2 w-full border rounded-md" id="productQuantity" name="productQuantity" required>
+                    </div>
+
+                    
+                    <div class="mb-4">
+                        <input type="checkbox" class="form-checkbox" id="markAsPaid" name="markAsPaid">
+                        <label for="markAsPaid" class="inline-block text-gray-700 text-sm font-bold">Mark as Paid</label>
+                    </div>
+
+
+                    <!-- Submit Button -->
+                    <div class="text-center">
+                        <button type="submit"
+                            class="bg-blue-500 text-white px-6 py-2 rounded-md hover:bg-blue-600 focus:outline-none focus:shadow-outline-blue active:bg-blue-800">
+                            Place Order
+                        </button>
+                    </div>
+
+                </form>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JavaScript (Optional, if needed) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+   
+</body>
+
+</html>
