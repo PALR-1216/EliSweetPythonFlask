@@ -20,19 +20,19 @@
             <form method="post" action="/addProduct">
               <div class="mb-3">
                 <label for="productName" class="form-label">Product Name</label>
-                <input type="text" class="form-control" id="productName" placeholder="Enter product name" required>
+                <input type="text" class="form-control" id="productName" name="productName" placeholder="Enter product name" required>
               </div>
               <div class="mb-3">
                 <label for="productPrice" class="form-label">Product Price</label>
-                <input type="number" class="form-control" id="productPrice" placeholder="Enter product price" required>
+                <input type="number" class="form-control" id="productPrice" name="productPrice" placeholder="Enter product price" required>
               </div>
               <div class="mb-3">
                 <label for="productDescription" class="form-label">Product Description</label>
-                <textarea class="form-control" id="productDescription" rows="3" placeholder="Enter product description" required></textarea>
+                <textarea class="form-control" id="productDescription" name="productDescription" rows="3" placeholder="Enter product description" ></textarea>
               </div>
               <div class="mb-3">
                 <label for="productImage" class="form-label">Product Image URL</label>
-                <input type="url" class="form-control" id="productImage" placeholder="Enter product image URL" required>
+                <input type="url" class="form-control" id="productImage" name="productImage" placeholder="Enter product image URL" required>
               </div>
               <button type="submit" class="btn btn-primary">Add Product</button>
             </form>

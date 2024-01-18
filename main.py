@@ -29,14 +29,18 @@ def Home():
     return render_template('Landing.html')
 
 
-@app.route('/adminLogin', methods=["GET"])
-def LoginAdmin():
-    return render_template('LoginAdmin.html')
-
 
 @app.route('/shop', methods=["GET"])
 def Shop():
     return render_template('Shop.html')
+
+# ---------BELOW ALL ADMIN --------
+
+
+@app.route('/adminLogin', methods=["GET"])
+def LoginAdmin():
+    return render_template('LoginAdmin.html')
+
 
 
 @app.route('/authAdmin', methods=['POST'])
@@ -76,28 +80,74 @@ def LogOut():
 
 @app.route('/listOrder', methods=["GET", "POST"])
 def ListOrder():
-    return render_template('OrderList.html')
+    if 'email' in session:
+        return render_template('OrderList.html')
+    else:
+        return redirect('/adminLogin')
 
 
 @app.route('/addOrder', methods=["GET", "POST"])
 def AddOrder():
-    return render_template('AddOrder.html')
+    if 'email' in session:
+        return render_template('AddOrder.html')
+
+    else:
+        return redirect('/adminLogin')
 
 @app.route('/products', methods=['GET', "POST"])
 def Products():
-    return render_template('Products.html')
+    if 'email' in session:
+        allProducts = GetAllProducts()
+        return render_template('Products.html', products=allProducts, len=len(allProducts))
+    else:
+        return redirect('/adminLogin')
 
 
 @app.route('/addProduct', methods=["GET"])
 def RenderProduct():
-    return render_template('AddProduct.html')
+    if 'email' in session:
+        return render_template('AddProduct.html')
+
+    else:
+        return redirect('/adminLogin')
 
 
 #add Product to database firestore
 @app.route('/addProduct', methods=["POST"])
 def AddProduct():
-    if request.method == "POST":
-        pass
+    if 'email' in session:
+        if request.method == "POST":
+            productName = request.form.get('productName')
+            productPrice = float(request.form.get('productPrice'))
+            productDescription = request.form.get('productDescription')
+            productImage = request.form.get('productImage')
+
+            product_data = {
+                'ProductName': productName,
+                'ProductPrice': productPrice,
+                'ProductDescription': productDescription,
+                'ProductImage': productImage
+            }
+
+            product_ref = db.collection('Products')
+            product_ref.add(product_data)
+
+            return redirect('/products')
+
+    else:
+        return redirect('/adminLogin')
+
+
+        
+
+def GetAllProducts():
+    allProducts = db.collection('Products')
+    products = []
+    for doc in allProducts.stream():
+        products.append(doc.to_dict())
+
+    return products
+    
 
 
 
