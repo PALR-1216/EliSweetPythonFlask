@@ -6,10 +6,14 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Tailwind CSS and Bootstrap 5 Template</title>
+        <title></title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-qEWOuNf3q3X3MH81dAKg4NB5hbeQXaPaCxWu8O9fvjr3fR2L/O5HfzpBp+csAZKLaI12Vh37zneg3SgYQ3y6Zg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
     
         <!-- Bootstrap 5 CSS -->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.19.0/font/bootstrap-icons.css" rel="stylesheet">
+
     
         <!-- Tailwind CSS -->
         <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
@@ -28,14 +32,18 @@
             <h2 class="text-xl font-bold mb-2">{{product['ProductName']}}</h2>
 
             <p class="text-gray-600 mb-2">
-                {% if product['ProductDescription'] == "" %}
+                {% if product['ProductDescription'] != "" %}
                     {{ product['ProductDescription'] }}
                 {% else %}
                     No description available.
                 {% endif %}
             </p>
 
-            <p class="text-green-600 font-bold">{{product['ProductPrice']}}</p>
+            <div class="d-flex align-items-center gap-4">
+                <p class="text-green-600 font-bold">{{ product['ProductPrice'] }}</p>
+                <p class="text-yellow-500 font-bold"><a href="/editProduct/{{product['id']}}">Edit</a></p>
+                <p class="text-red-600 font-bold"><a href="#">Delete</a></p>
+            </div>
         </div>
 
         {% endfor %}

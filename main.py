@@ -138,18 +138,40 @@ def AddProduct():
         return redirect('/adminLogin')
 
 
+@app.route('/editProduct/<productID>')
+def EditProduct(productID):
+    if 'email' in session:
+        product_details = Get_product_details(productID)
+        if product_details:
+            return render_template('EditProduct.html', product_details=product_details, ID=productID)
+
+
+    else:
+        return redirect('/adminLogin')
+
         
 
 def GetAllProducts():
     allProducts = db.collection('Products')
     products = []
     for doc in allProducts.stream():
-        products.append(doc.to_dict())
+        product_data = doc.to_dict()
+        # Add document ID to the dictionary
+        product_data['id'] = doc.id
+        products.append(product_data)
 
     return products
-    
+
+
+def Get_product_details(ID):
+    product_ref = db.collection('Products').document(ID)
+    product_doc = product_ref.get()
+    if product_doc.exists:
+        product_data = product_doc.to_dict()
+        return product_data
+    else:
+        return None 
 
 
 
-
-app.run(host='0.0.0.0', port=5000, debug=True)
+app.run(host='0.0.0.0', port=3000, debug=True)
