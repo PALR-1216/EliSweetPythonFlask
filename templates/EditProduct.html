@@ -13,12 +13,12 @@
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 </head>
 <body>
-    <h1 style="text-align: center;">Updating Product <strong>{{product_details.ProductName}}</strong> </h1>
+    <h1 class="text-2xl font-bold" style="text-align: center;">Updating Product {{product_details.ProductName}} </h1>
 
     <div class="container mt-5">
         <div class="row justify-content-center">
           <div class="col-md-6">
-            <form method="post" action="/updateProduct/{{product_details.id}}">
+            <form method="post" action="/updateProduct/{{ID}}">
               <div class="mb-3">
                 <label for="productName" class="form-label">Change Product Name</label>
                 <input type="text" class="form-control" id="productName" name="productName" value="{{product_details.ProductName}}" placeholder="Enter product name" required>
@@ -33,9 +33,9 @@
               </div>
               <div class="mb-3">
                 <label for="productImage" class="form-label">Change Product Image URL</label>
-                <input type="url" class="form-control" id="productImage"  name="productImage" placeholder="Enter New product image URL {{product_details.ProductImage}}" required>
+                <input type="url" class="form-control" id="productImage" value="{{product_details.ProductImage}}"  name="productImage" placeholder="Enter New product image URL {{product_details.ProductImage}}">
                 <br>
-                <img src="{{product_details.ProductImage}}" height="100px" width="200px"/>
+                <img src="{{product_details.ProductImage}}" value="{{product_details.ProductImage}}" height="100px" width="200px"/>
               </div>
               <button type="submit" class="btn btn-primary">Update Product: {{product_details.ProductName}} </button>
             </form>

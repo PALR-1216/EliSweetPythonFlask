@@ -146,10 +146,47 @@ def EditProduct(productID):
             return render_template('EditProduct.html', product_details=product_details, ID=productID)
 
 
+
     else:
         return redirect('/adminLogin')
 
-        
+
+@app.route('/updateProduct/<id>', methods=["POST"])
+def UpdateProduct(id):
+    if 'email' in session:
+        if request.method == "POST":
+            productName = request.form.get('productName')
+            productPrice = float(request.form.get('productPrice'))
+            productDescription = request.form.get('productDescription')
+            productImage = request.form.get('productImage')
+
+            product_data = {
+                'ProductName': productName,
+                'ProductPrice': productPrice,
+                'ProductDescription': productDescription,
+                'ProductImage': productImage
+            }
+            product_ref = db.collection('Products').document(id)
+            product_ref.update(product_data)
+
+            return redirect('/products')
+
+
+
+
+    else:
+        return redirect('/adminLogin')
+
+@app.route('/deleteProduct/<id>')
+
+# im here 1/19/24
+def DeleteProduct(id):
+    product_details = Get_product_details(id)
+    if product_details:
+        return render_template('VerifyDelete.html', product_details=product_details, ID=id)
+
+    else:
+        return redirect('/products', error="Error In Deleting Product {{id}}")
 
 def GetAllProducts():
     allProducts = db.collection('Products')

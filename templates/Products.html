@@ -20,7 +20,11 @@
     </head>
     <body>
         
-    <a href="/addProduct">Add Product</a>
+        <div class="flex items-center justify-center p-4">
+            <a href="/addProduct" class="bg-blue-500 text-white font-bold py-2 px-4 rounded">
+              Add Product
+            </a>
+          </div>
 
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
 
@@ -42,7 +46,7 @@
             <div class="d-flex align-items-center gap-4">
                 <p class="text-green-600 font-bold">{{ product['ProductPrice'] }}</p>
                 <p class="text-yellow-500 font-bold"><a href="/editProduct/{{product['id']}}">Edit</a></p>
-                <p class="text-red-600 font-bold"><a href="#">Delete</a></p>
+                <p class="text-red-600 font-bold"><a href="/deleteProduct/{{product['id']}}">Delete</a></p>
             </div>
         </div>
 
