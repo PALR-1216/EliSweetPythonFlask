@@ -32,8 +32,21 @@
               </div>
               <div class="mb-3">
                 <label for="productImage" class="form-label">Product Image URL</label>
-                <input type="url" class="form-control" id="productImage" name="productImage" placeholder="Enter product image URL" required>
+                <input type="url" class="form-control" id="productImage" name="productImage" placeholder="Enter product image URL" >
               </div>
+
+              <div class="mb-3">
+                <label for="selectOption" class="form-label">Select an option:</label>
+                <select class="form-select" id="selectOption">
+                    <option value="active" selected class="text-success font-weight-bold">Active</option>
+                    <option value="draft" class="text-muted">Draft</option>
+                </select>
+            </div>
+
+
+
+
+
               <button type="submit" class="btn btn-primary">Add Product</button>
             </form>
           </div>

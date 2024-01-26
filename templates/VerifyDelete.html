@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Delete Product</title>
+    <!-- Include Tailwind CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+
+<body class="bg-gray-100 min-h-screen flex items-center justify-center">
+
+    <div class="bg-white p-8 max-w-md rounded shadow-md">
+        <h2 class="text-2xl font-bold mb-4">Verify Delete Product</h2>
+
+        <!-- Product Details -->
+        <div class="flex items-center mb-4">
+            <!-- Product Image -->
+            <img src="{{ product_details.ProductImage }}" alt="Product Image"
+                class="w-12 h-12 object-cover rounded mr-4">
+
+            <!-- Product Information -->
+            <div>
+                <p class="text-lg font-bold">{{ product_details.ProductName }}</p>
+                <p class="text-gray-500">{{ product_details.ProductPrice }} USD</p>
+                <p class="text-gray-500">ID: {{id}}</p>
+                
+            </div>
+        </div>
+
+        <!-- Buttons -->
+        <div class="flex justify-end">
+            <button class="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded mr-2"
+                onclick="cancelDelete()">Cancel</button>
+            <button class="bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded"
+                onclick="confirmDelete()">Delete</button>
+        </div>
+    </div>
+
+    <script>
+        // JavaScript functions for button actions
+        function cancelDelete() {
+            // Handle cancel action
+            alert("Cancel action");
+        }
+
+        function confirmDelete() {
+            // Handle delete action
+            alert("Delete action");
+        }
+    </script>
+</body>
+
+</html>

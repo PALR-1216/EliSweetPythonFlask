@@ -121,12 +121,14 @@ def AddProduct():
             productPrice = float(request.form.get('productPrice'))
             productDescription = request.form.get('productDescription')
             productImage = request.form.get('productImage')
+            selectOption = request.form.get('selectOption')
 
             product_data = {
                 'ProductName': productName,
                 'ProductPrice': productPrice,
                 'ProductDescription': productDescription,
-                'ProductImage': productImage
+                'ProductImage': productImage,
+                'selectOption':selectOption
             }
 
             product_ref = db.collection('Products')
@@ -159,12 +161,14 @@ def UpdateProduct(id):
             productPrice = float(request.form.get('productPrice'))
             productDescription = request.form.get('productDescription')
             productImage = request.form.get('productImage')
+            selectOption = request.form.get('selectOption')
 
             product_data = {
                 'ProductName': productName,
                 'ProductPrice': productPrice,
                 'ProductDescription': productDescription,
-                'ProductImage': productImage
+                'ProductImage': productImage,
+                'selectOption':selectOption
             }
             product_ref = db.collection('Products').document(id)
             product_ref.update(product_data)
@@ -177,16 +181,28 @@ def UpdateProduct(id):
     else:
         return redirect('/adminLogin')
 
-@app.route('/deleteProduct/<id>')
-
-# im here 1/19/24
+@app.route('/deleteProduct/<id>', methods=["GET"])
 def DeleteProduct(id):
-    product_details = Get_product_details(id)
-    if product_details:
-        return render_template('VerifyDelete.html', product_details=product_details, ID=id)
+    if 'email' in session:
+        product_details = Get_product_details(id)
+        if product_details:
+            return render_template('VerifyDelete.html', id=id, product_details = product_details)
+            if request.method == "POST":
+                return id
+
 
     else:
-        return redirect('/products', error="Error In Deleting Product {{id}}")
+        return redirect('/adminLogin')
+
+            
+
+# @app.route('/deleteProductID/<id>', methods=["POST"])
+# def DeleteID(id):
+#     # delete product in firestore
+#     product_ref = db.collection('Products').document(id)
+#     product_ref.delete()
+#     return redirect('/products')
+
 
 def GetAllProducts():
     allProducts = db.collection('Products')
