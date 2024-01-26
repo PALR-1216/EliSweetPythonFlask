@@ -44,7 +44,7 @@
             </p>
 
             <div class="d-flex align-items-center gap-4">
-                <p class="text-green-600 font-bold">{{ product['ProductPrice'] }}</p>
+                <p class="text-green-600 font-bold">${{ product['ProductPrice'] }}</p>
                 <p class="text-yellow-500 font-bold"><a href="/editProduct/{{product['id']}}">Edit</a></p>
                 <p class="text-red-600 font-bold"><a href="/deleteProduct/{{product['id']}}">Delete</a></p>
             </div>

@@ -32,6 +32,11 @@ def Home():
 
 @app.route('/shop', methods=["GET"])
 def Shop():
+    # get all my products here
+    allProduct = GetAllActiveProducts()
+    print(allProduct)
+
+
     return render_template('Shop.html')
 
 # ---------BELOW ALL ADMIN --------
@@ -121,7 +126,7 @@ def AddProduct():
             productPrice = float(request.form.get('productPrice'))
             productDescription = request.form.get('productDescription')
             productImage = request.form.get('productImage')
-            selectOption = request.form.get('selectOption')
+            selectOption = request.form.get('OptionSelect')
 
             product_data = {
                 'ProductName': productName,
@@ -161,7 +166,7 @@ def UpdateProduct(id):
             productPrice = float(request.form.get('productPrice'))
             productDescription = request.form.get('productDescription')
             productImage = request.form.get('productImage')
-            selectOption = request.form.get('selectOption')
+            selectOption = request.form.get('OptionSelect')
 
             product_data = {
                 'ProductName': productName,
@@ -187,21 +192,25 @@ def DeleteProduct(id):
         product_details = Get_product_details(id)
         if product_details:
             return render_template('VerifyDelete.html', id=id, product_details = product_details)
-            if request.method == "POST":
-                return id
+            
 
 
     else:
         return redirect('/adminLogin')
 
-            
 
-# @app.route('/deleteProductID/<id>', methods=["POST"])
-# def DeleteID(id):
-#     # delete product in firestore
-#     product_ref = db.collection('Products').document(id)
-#     product_ref.delete()
-#     return redirect('/products')
+
+            
+@app.route('/deleteProductID/<id>', methods=["GET"])
+def DeleteID(id):
+    # delete product in firestore
+    if 'email' in session:
+        product_ref = db.collection('Products').document(id)
+        product_ref.delete()
+        return redirect('/products')
+
+    else:
+        return redirect('/adminLogin')
 
 
 def GetAllProducts():
@@ -215,10 +224,18 @@ def GetAllProducts():
 
     return products
 
+def GetAllActiveProducts():
+    allProducts = db.collection('Products').where('selectOption', '==', 'Active')
+    products = []
+    for doc in allProducts.get():
+        product_data = doc.to_dict()
+        products.append(product_data)
+    return products
+
 
 def Get_product_details(ID):
     product_ref = db.collection('Products').document(ID)
-    product_doc = product_ref.get()
+    product_doc = product_ref.stream()
     if product_doc.exists:
         product_data = product_doc.to_dict()
         return product_data

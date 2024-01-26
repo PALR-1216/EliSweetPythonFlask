@@ -31,10 +31,8 @@
 
         <!-- Buttons -->
         <div class="flex justify-end">
-            <button class="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded mr-2"
-                onclick="cancelDelete()">Cancel</button>
-            <button class="bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded"
-                onclick="confirmDelete()">Delete</button>
+            <a href="/products" class="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded mr-2">Cancel</a>
+            <a href="/deleteProductID/{{id}}" class="bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded">Delete</a>
         </div>
     </div>
 

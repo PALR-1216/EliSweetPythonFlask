@@ -31,6 +31,16 @@
                 <label for="productDescription" class="form-label">Change Product Description</label>
                 <textarea class="form-control" id="productDescription" name="productDescription" value="{{product_details.ProductDescription}}" rows="3" placeholder="Enter product description" ></textarea>
               </div>
+
+              <div class="mb-3">
+                <label for="selectOption"  class="form-label">Select an option (value already selected): {{product_details.selectOption}}</label>
+                <select class="form-select" name="OptionSelect" id="selectOption">
+                    <option value="Active"  class="text-success font-weight-bold">Active</option>
+                    <option value="Draft" class="text-muted">Draft</option>
+                </select>
+            </div>
+
+
               <div class="mb-3">
                 <label for="productImage" class="form-label">Change Product Image URL</label>
                 <input type="url" class="form-control" id="productImage" value="{{product_details.ProductImage}}"  name="productImage" placeholder="Enter New product image URL {{product_details.ProductImage}}">
