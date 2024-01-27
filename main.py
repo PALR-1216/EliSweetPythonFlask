@@ -26,7 +26,11 @@ app.secret_key = secrets.token_hex(8)
 
 @app.route('/', methods=["GET"])
 def Home():
-    return render_template('Landing.html')
+    # return render_template('Landing.html')
+    if 'email' in session:
+        return render_template('Dashboard.html')
+    else:
+        return render_template('LoginAdmin.html')
 
 
 
