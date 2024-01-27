@@ -233,15 +233,16 @@ def GetAllActiveProducts():
     return products
 
 
+
+
 def Get_product_details(ID):
     product_ref = db.collection('Products').document(ID)
-    product_doc = product_ref.stream()
+    product_doc = product_ref.get()
+    
     if product_doc.exists:
         product_data = product_doc.to_dict()
         return product_data
     else:
-        return None 
-
-
+        return None
 
 app.run(host='0.0.0.0', port=3000, debug=True)
