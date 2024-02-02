@@ -46,8 +46,9 @@
 
                     <div class="mb-4">
                         <label for="clientDeliveryLocation" class="block text-gray-700 text-sm font-bold mb-2">Client Delivery Location</label>
-                        <input type="text" class="form-input px-4 py-2 w-full border rounded-md" id="clientDeliveryLocation" name="clientDeliveryLocation" required>
+                        <input type="date" class="form-input px-4 py-2 w-full border rounded-md" id="clientDeliveryLocation" name="clientDeliveryLocation" required>
                     </div>
+                    
 
                  
 
@@ -55,12 +56,12 @@
                         <label for="clientProduct" class="block text-gray-700 text-sm font-bold mb-2">Client Product of Choice</label>
                         <select class="form-select px-4 py-2 w-full border rounded-md" id="clientProduct" name="clientProduct" required onchange="updateProductInfo()">
                             <option value="" disabled selected>Select a product</option>
-                            <option value="product1">Product 1</option>
-                            <option value="product2">Product 2</option>
-                            <option value="product3">Product 3</option>
-                            <!-- Add more options as needed -->
+                            {% for product in products %}
+                                <option value="{{ product['name'] }}">{{ product['name'] }} - ${{ product['price'] }}</option>
+                            {% endfor %}
                         </select>
                     </div>
+                    
 
                     
 
