@@ -7,6 +7,7 @@ from firebase_admin import firestore
 from flask_session import sessions
 from datetime import timedelta
 import secrets
+import webview
 
 
 current_dir = os.path.dirname(os.path.realpath(__file__))
