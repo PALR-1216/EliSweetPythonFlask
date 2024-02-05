@@ -30,7 +30,7 @@ def Home():
     if 'email' in session:
         return render_template('Dashboard.html')
     else:
-        return render_template('LoginAdmin.html')
+        return render_template('index.html')
 
 
 
